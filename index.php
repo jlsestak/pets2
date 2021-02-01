@@ -13,9 +13,11 @@ $f3->set('DEBUG', 3);
 
 //default root
 $f3->route('GET /', function(){
-    echo "My Pets";
-}
-);
+    //echo "My Pets";
+    $view = new Template();
+    echo $view->render('views/pet-home.html');
+
+});
 
 //run fat free
 $f3->run();
