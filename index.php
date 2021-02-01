@@ -38,6 +38,14 @@ $f3->route('POST /order2', function(){
     echo $view->render('views/pet-order2.html');
 });
 
+//summary route
+$f3->route('POST /summary', function(){
+
+    $view = new Template();
+    echo $view->render('views/order-summary.html');
+    var_dump($_POST);
+});
+
 
 //run fat free
 $f3->run();
