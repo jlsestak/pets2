@@ -33,7 +33,15 @@ $f3->route('GET /order', function(){
 $f3->route('POST /order2', function(){
     //echo "Order Page 2";
     //var_dump($_POST);
+    //add data from order page to session array
+    if(isset($_POST['typeOfPet'])){
+        $_SESSION['typeOfPet'] = $_POST['typeOfPet'];
+    }
+    if(isset($_POST['colors'])){
+        $_SESSION['colors'] = $_POST['colors'];
+    }
 
+    //display a view
     $view = new Template();
     echo $view->render('views/pet-order2.html');
 });
@@ -41,9 +49,15 @@ $f3->route('POST /order2', function(){
 //summary route
 $f3->route('POST /summary', function(){
 
+    //add data from form 2 to session array
+    if(isset($_POST['petName'])){
+        $_SESSION['petName'] = $_POST['petName'];
+    }
+
+    //display a view
     $view = new Template();
     echo $view->render('views/order-summary.html');
-    var_dump($_POST);
+    //var_dump($_POST);
 });
 
 
