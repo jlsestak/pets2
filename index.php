@@ -46,12 +46,29 @@ $f3->route('POST /order2', function(){
     echo $view->render('views/pet-order2.html');
 });
 
-//summary route
-$f3->route('POST /summary', function(){
+//order3 route
+$f3->route('POST /order3', function(){
 
     //add data from form 2 to session array
     if(isset($_POST['petName'])){
         $_SESSION['petName'] = $_POST['petName'];
+    }
+
+    if(isset($_POST['accessory'])){
+        $_SESSION['accessory'] = $_POST['accessory'];
+    }
+
+    //display a view
+    $view = new Template();
+    echo $view->render('views/pet-order3.html');
+});
+
+//summary route
+$f3->route('POST /summary', function(){
+
+    //add data from form 3 to session array
+    if(isset($_POST['accessory'])){
+        $_SESSION['accessory'] = $_POST['accessory'];
     }
 
     //display a view
